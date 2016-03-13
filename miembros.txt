@@ -1,0 +1,7 @@
+Los miembros que tienen acceso a este repositorio debe realizar la siguiente actividad de práctica.
+Deben escribir sus datos personales y guardalos como un Branch, **OJO** no debe guardarlo como un commit. 
+Por favor antes de guardar *** Ver el video *** para verificar el proceso. Gracias.
+
+
+Nombre             Apellido           Cedula
+Javier Ignacio     Rivera Romero      8.046.113
