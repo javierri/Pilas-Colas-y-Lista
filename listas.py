@@ -13,7 +13,7 @@ class Lista:
 	def __init__(self, *elem):
 		self.__primero = None
 		self.__ultimo = None
-		self.ant_actual = None
+		self.__ant_actual = None
 		
 		for i in elem:
 			self.insertar_ultimo(i)
