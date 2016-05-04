@@ -1,6 +1,6 @@
 # Clase Lista con nodos enlazados
-# Observación: 
-# Autor: Javier Rivera (UNEFA Mérida)
+# Observacion: 
+# Autor: Javier Rivera (UNEFA Merida)
 
 # Clase Nodo
 class Nodo:
@@ -54,6 +54,10 @@ class Lista:
 		while (nodo != None):
 			list3.insertar_ultimo(nodo.Info)
 			nodo = nodo.sig
+			
+		if (type(elem) == int):
+			list3.insertar_ultimo(elem)
+			return list3
 		
 		nodo = list2.__primero
 		while (nodo != None):
@@ -61,6 +65,12 @@ class Lista:
 			nodo = nodo.sig
 			
 		return list3
+		
+	def info_anterior(self):
+		if (self.__primero == None or self.__ant_actual == None) :
+			return 
+			
+		return self.__ant_actual.Info
     
 	def eliminar_elem (self,elem):
 		while (self.__primero != None and self.__primero.Info == elem):
@@ -131,6 +141,21 @@ l1.mostrar()
 l1.eliminar_elem(3)
 l1.mostrar()
 
+# Concatena y agreag un elememento entero al final
+L1 = L1 + L2
+L1.mostrar()
+L1 = L1 + 4
+L1.mostrar()
+
+# Muestra la informacion del anterior del actual 
+L1.inicio()
+print "__", L1.info_anterior()
+L1.sig()
+print "__", L1.info_anterior()
+L1.sig()
+print "__", L1.info_anterior()
+
+# Elimina el 4
 elem = 4
 l1.inicio()
 while (not l1.actual_es_ultimo()):
