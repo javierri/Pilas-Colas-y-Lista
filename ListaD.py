@@ -32,6 +32,45 @@ class ListaD:
 		
 		self.Actual = nodo
 		
+	def eliminar(self):
+		if (self.primero == None and self.Actual == None):
+			return
+			
+		nodo = self.Actual 
+		
+		if (self.Actual == self.primero): 
+			self.primero = nodo.sig
+		else:
+			self.Actual.ant.sig = nodo.sig
+		
+		if (self.Actual == self.ultimo): 
+			self.ultimo = nodo.ant
+		else:	
+			self.Actual.sig.ant = nodo.ant
+			
+		self.Actual = nodo.sig
+		del nodo
+		
+	def vaciar(self):
+		while (self.primero != None):
+			nodo = self.primero
+			self.primero = nodo.sig
+			del nodo
+			
+		self.actual = None
+		self.ultimo = None
+		
+	def pos_actual(self):
+		if (self.Actual == None):
+			return None
+		
+		n = 0
+		nodo = self.primero
+		while (nodo != self.Actual):
+			n = n + 1
+			nodo = nodo.sig
+		return n	
+		
 	def sig (self):
 		if (self.Actual != None):
 			self.Actual = self.Actual.sig
@@ -63,14 +102,14 @@ class ListaD:
 # PRINCIPAL
 
 a = ListaD()
-for i in range(10):
+for i in range(3):
 	a.actual_finlista()
 	a.insertar(i)
 	
 a.mostrar()
 
 a.actual_ultimo()
-for i in range(10):
+for i in range(3):
 	print a.Actual.info,
 	a.ant()
 	
@@ -83,3 +122,24 @@ a.sig()
 a.insertar("nuevo")
 
 a.mostrar()
+
+a.eliminar()
+a.mostrar()
+
+print "borra el primero"
+a.actual_primero()
+a.eliminar()
+a.mostrar()
+
+print "borra el ultimo"
+a.actual_ultimo()
+a.eliminar()
+a.mostrar()
+
+print "borra el unico"
+a.actual_primero()
+a.eliminar()
+a.mostrar()
+
+
+
