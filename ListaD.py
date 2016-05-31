@@ -83,6 +83,17 @@ class ListaD:
 		else:
 			self.Actual = self.ultimo
 			
+	def mover(self, n):
+		pos = 0
+		if (n > 0):
+			while (pos < n and self.Actual != None):
+				self.sig()
+				pos = pos + 1
+		else:
+			while (pos > n and self.Actual != None):
+				self.ant()
+				pos = pos - 1
+			
 	def actual_primero (self):
 		self.Actual = self.primero
 		
@@ -99,47 +110,7 @@ class ListaD:
 			nodo = nodo.sig
 		print nodo.info
 
-# PRINCIPAL
 
-a = ListaD()
-for i in range(3):
-	a.actual_finlista()
-	a.insertar(i)
-	
-a.mostrar()
-
-a.actual_ultimo()
-for i in range(3):
-	print a.Actual.info,
-	a.ant()
-	
-print
-	
-a.actual_primero()
-a.sig()
-a.sig()
-a.sig()
-a.insertar("nuevo")
-
-a.mostrar()
-
-a.eliminar()
-a.mostrar()
-
-print "borra el primero"
-a.actual_primero()
-a.eliminar()
-a.mostrar()
-
-print "borra el ultimo"
-a.actual_ultimo()
-a.eliminar()
-a.mostrar()
-
-print "borra el unico"
-a.actual_primero()
-a.eliminar()
-a.mostrar()
 
 
 
