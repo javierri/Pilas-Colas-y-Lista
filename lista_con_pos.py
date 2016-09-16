@@ -1,6 +1,6 @@
 # LPIII_2016
 # Autor: JAVIER RIVERA (UNEFA)
-# Ver en : http://replit.com/DaSb
+# Ver en : http://replit.com/DaSb/7
 
 # CLASE NODO
 class Nodo:
@@ -17,7 +17,7 @@ class Lista:
 		self.__ultimo = None
 		self.__actual = None
 		self.__n = 0
-		self.pos = 0
+		self.__pos = 0
 
     # Metodo para insertar al inicio de la lista
 	def insertar_inicio (self, valor):
@@ -67,26 +67,55 @@ class Lista:
 		self.__pos = self.__pos + 1
 		
 		
+	# Metodo que busca si un valor existe en la lista 
+	def busca_valor (self, valor):
+		
+		nodo  = self.__primero
+		p = 0
+		while (nodo != None) :
+			if (nodo.info == valor):
+				return p 
+			
+			nodo = nodo.sig
+			p = p + 1
+			
+		return -1
+		
+	# Metodo para eliminar el primer elemento de la lista
+	def elimina_primero(self):
+		
+		if (self.__primero == None):
+			return
+
+		nodo = self.__primero
+		self.__primero = nodo.sig
+		del nodo 
+		
+		self.__n = self.__n - 1
+		if (self.__n == 0):
+			self.__ultimo = None
+
+		if (self.__pos == 0):
+			self.__actual = self.__primero
+		else:
+			self.__pos = self.__pos - 1
+
+
+	# Metodo para ubicar en actual en la posicion "pos" (enviada por parametro)
+	def pos_actual(self, pos):
+		pass
+		
+		
 	# Metodo para mostrar los elementos de la lista 
 	def mostrar (self):
+		
 		nodo = self.__primero
 		for i in range (self.__n):
-			print nodo.info
-			nodo=nodo.sig		
+			if (i == self.__pos):
+				print "(",nodo.info,")", 
+			else: 
+				print nodo.info, 
+			nodo=nodo.sig	
 			
-# PRINCIPAL 
-
-# Crea la lista de elementos
-l = Lista()
-
-# Inserta elementos en la lista 
-l.insertar_actual(5);
-l.insertar_actual(10);
-l.insertar_actual(15);
-l.insertar_actual(20);
-l.insertar_inicio(25);
-l.insertar_actual(30);
-l.insertar_ultimo(35);
-
-# Muestra los elementos de la lista 
-l.mostrar()
+		print 
+		
