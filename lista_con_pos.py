@@ -1,6 +1,6 @@
 # LPIII_2016
 # Autor: JAVIER RIVERA (UNEFA)
-# Ver en : http://replit.com/DaSb/7
+# Ver en : http://replit.com/DaSb/8
 
 # CLASE NODO
 class Nodo:
@@ -99,7 +99,13 @@ class Lista:
 			self.__actual = self.__primero
 		else:
 			self.__pos = self.__pos - 1
-
+			
+	# Metodo para vaciar la lista 
+	def vacia_lista(self):
+		
+		num = self.__n
+		for i in range(num):
+			self.elimina_primero()
 
 	# Metodo para ubicar en actual en la posicion "pos" (enviada por parametro)
 	def pos_actual(self, pos):
